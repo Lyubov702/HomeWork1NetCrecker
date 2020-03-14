@@ -31,8 +31,12 @@ public class Main {
         System.out.println("Sum = " + polynom.add(polynom2));
         MyPolynomial polynom3 = new MyPolynomial(new double[]{4.0, 1.0});
         MyPolynomial polynom4 = new MyPolynomial(new double[]{4.0, 1.0});
+        System.out.println(polynom.equals(polynom2));
+        System.out.println(polynom.equals(polynom3));
         System.out.println(polynom3);
+        System.out.println(polynom.hashCode());
         System.out.println(polynom4);
+        System.out.println(polynom4.hashCode());
         System.out.println("multiply= " + polynom3.multiply(polynom4));
     }
 }

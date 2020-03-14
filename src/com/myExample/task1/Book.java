@@ -62,4 +62,28 @@ public class Book {
         }
         return authorsName;
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if(obj == null) return false;
+        if(obj.getClass()!=this.getClass()) return false;
+
+        Book book = (Book) obj;
+        return book.name.equals(name)
+                && book.price==price
+                && book.qty == qty
+                && Arrays.equals(book.getAuthors(),getAuthors());
+    }
+
+    @Override
+    public int hashCode() {
+        int result = 17;
+        result = 31 * result + name.hashCode();
+        result = (int) ((31 * result + Double.doubleToLongBits(price))^(Double.doubleToLongBits(price)>>> 32));
+        result = 31 * result + qty;
+        result = 31 * result + Arrays.hashCode(getAuthors());
+
+        return result;
+    }
 }

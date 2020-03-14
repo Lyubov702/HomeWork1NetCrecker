@@ -25,7 +25,10 @@ public class Main {
         System.out.println("Area= " +circle.getArea());
 
         Author author1 = new Author("autho1", "num1@gmail.com", 'm');
+        Author author = new Author("autho1", "num1@gmail.com", 'm');
         Author author2 = new Author("autho2", "num2@gmail.com", 'f');
+        System.out.println(author.equals(author1));
+        System.out.println(author.equals(author2));
         Author[] authors = new Author[]{author1, author2};
         Book book = new Book("book", authors, 156);
         System.out.println(book);

@@ -1,5 +1,7 @@
 package com.myExample.task2;
 
+import java.util.Arrays;
+
 public class MyPolynomial {
     private double[] coeffs;
 
@@ -20,6 +22,19 @@ public class MyPolynomial {
         return result += "x+" + coeffs[0];
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o==null || o.getClass()!=this.getClass()) return false;
+        MyPolynomial polynomial = (MyPolynomial) o;
+
+        return Arrays.equals(coeffs, polynomial.coeffs);
+    }
+
+    @Override
+    public int hashCode() {
+        return Arrays.hashCode(coeffs);
+    }
 
     public double evaluate(double x) {
         double res = 0.0;

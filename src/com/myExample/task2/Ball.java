@@ -1,5 +1,7 @@
 package com.myExample.task2;
 
+import java.util.Objects;
+
 public class Ball {
 
     private float x;
@@ -79,5 +81,28 @@ public class Ball {
                 "), speed=(" + xDelta +
                 ", " + yDelta +
                 ")}";
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if(o==null || o.getClass()!=this.getClass()) return false;
+        Ball ball = (Ball) o;
+        return ball.x==x && ball.y==y
+                && ball.radius==radius
+                && ball.xDelta==xDelta
+                && ball.yDelta==yDelta;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = 17;
+        result = 31 * result + Float.floatToIntBits(x);
+        result = 31 * result + Float.floatToIntBits(y);
+        result = 31 * result + radius;
+        result = 31 * result + Float.floatToIntBits(xDelta);
+        result = 31 * result + Float.floatToIntBits(yDelta);
+
+        return result;
     }
 }

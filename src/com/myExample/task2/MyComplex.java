@@ -1,5 +1,7 @@
 package com.myExample.task2;
 
+import java.util.Objects;
+
 public class MyComplex {
 
     private double real = 0.0;
@@ -34,13 +36,6 @@ public class MyComplex {
         this.imag = imag;
     }
 
-    @Override
-    public String toString() {
-        return "MyComplex{" +
-                "(" + real +
-                " + " + imag +
-                "i)}";
-    }
 
     public boolean isReal() {
         return this.real != 0.0;
@@ -112,5 +107,29 @@ public class MyComplex {
         return new MyComplex(1 * real, -1 * imag);
     }
 
+    @Override
+    public String toString() {
+        return "MyComplex{" +
+                "(" + real +
+                " + " + imag +
+                "i)}";
+    }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o==null || o.getClass()!=this.getClass()) return false;
+        MyComplex complex = (MyComplex) o;
+
+        return complex.real==real && complex.imag==imag;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = 17;
+        result = (int) (31 * result + (Double.doubleToLongBits(real)) ^ (Double.doubleToLongBits(real) >>> 32));
+        result = (int) (31 * result + (Double.doubleToLongBits(imag)) ^ (Double.doubleToLongBits(imag) >>> 32));
+
+        return result;
+    }
 }

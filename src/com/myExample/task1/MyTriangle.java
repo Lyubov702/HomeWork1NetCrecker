@@ -1,5 +1,7 @@
 package com.myExample.task1;
 
+import java.util.Objects;
+
 public class MyTriangle {
 
     private MyPoint v1 = new MyPoint();
@@ -52,6 +54,27 @@ public class MyTriangle {
                 || Math.pow(a, 2) + Math.pow(c, 2) == Math.pow(b, 2)) {
             result = "Rectangular";
         }
+
+        return result;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if(o==null || o.getClass()!=this.getClass()) return false;
+        MyTriangle triangle = (MyTriangle) o;
+
+        return Objects.equals(v1, triangle.v1) &&
+                Objects.equals(v2, triangle.v2) &&
+                Objects.equals(v3, triangle.v3);
+    }
+
+    @Override
+    public int hashCode() {
+        int result = 17;
+        result = 31*result+v1.hashCode();
+        result = 31*result+v2.hashCode();
+        result = 31*result+v3.hashCode();
 
         return result;
     }
