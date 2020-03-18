@@ -1,4 +1,4 @@
-package com.myExample.task1;
+package com.myExample.task1.shapes.circle;
 
 public class Circle {
 

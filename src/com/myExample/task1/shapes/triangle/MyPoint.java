@@ -1,4 +1,4 @@
-package com.myExample.task1;
+package com.myExample.task1.shapes.triangle;
 
 public class MyPoint {
     private int x = 0;

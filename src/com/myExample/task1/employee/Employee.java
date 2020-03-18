@@ -1,4 +1,4 @@
-package com.myExample.task1;
+package com.myExample.task1.employee;
 
 public class Employee {
     private int id;

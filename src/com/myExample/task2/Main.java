@@ -1,5 +1,10 @@
 package com.myExample.task2;
 
+import com.myExample.task2.ball.Ball;
+import com.myExample.task2.ball.Container;
+import com.myExample.task2.complex.MyComplex;
+import com.myExample.task2.polynomial.MyPolynomial;
+
 public class Main {
     public static void main(String[] args) {
         Ball ball = new Ball(4, 4, 1, 2, 90);

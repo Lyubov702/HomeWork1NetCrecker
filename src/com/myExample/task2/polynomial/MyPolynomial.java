@@ -1,4 +1,4 @@
-package com.myExample.task2;
+package com.myExample.task2.polynomial;
 
 import java.util.Arrays;
 

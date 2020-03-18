@@ -1,5 +1,6 @@
-package com.myExample.task1;
+package com.myExample.task1.shapes.triangle;
 
+import java.math.BigDecimal;
 import java.util.Objects;
 
 public class MyTriangle {
@@ -33,35 +34,35 @@ public class MyTriangle {
 
     public String getType() {
         //the sides of the triangle
-        double a = v1.distance(v2);
-        double b = v1.distance(v3);
-        double c = v3.distance(v2);
+
+        BigDecimal side1 = BigDecimal.valueOf(v1.distance(v2));
+        BigDecimal side2 = BigDecimal.valueOf(v1.distance(v3));
+        BigDecimal side3 = BigDecimal.valueOf(v3.distance(v2));
+
         String result = null;
 
-        if (a == b && a == c && b == c) {
-            result = "Equilateral";
+        if ((side1.compareTo(side2) == 0) && (side1.compareTo(side3) == 0) && (side2.compareTo(side3)== 0)) {
+
+            result = String.valueOf(TypeOfTriangle.EQUILATERAL);
         }
 
-        if (a == b && a != c && b != c || a == c && c != b && a != b || b == c && b != a && c != a) {
-            result = "Isosceles";
-        }
-        if (a != b && a != c && b != c) {
-            result = "Scalene";
+        if ((side1.compareTo(side2) == 0) && (side1.compareTo(side3) != 0) && (side2.compareTo(side3) != 0)
+                || (side1.compareTo(side3) == 0) && (side2.compareTo(side3) != 0) && (side1.compareTo(side2) != 0)
+                || (side2.compareTo(side3) == 0) && (side1.compareTo(side2) != 0) && (side1.compareTo(side3) != 0)) {
+
+            result = String.valueOf(TypeOfTriangle.ISOSCELES);
         }
 
-        if (Math.pow(a, 2) + Math.pow(b, 2) == Math.pow(c, 2)
-                || Math.pow(b, 2) + Math.pow(c, 2) == Math.pow(a, 2)
-                || Math.pow(a, 2) + Math.pow(c, 2) == Math.pow(b, 2)) {
-            result = "Rectangular";
+        if ((side1.compareTo(side2) != 0) && (side1.compareTo(side3) != 0) && (side2.compareTo(side3) != 0)) {
+            result = String.valueOf(TypeOfTriangle.SCALENE);
         }
-
         return result;
     }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if(o==null || o.getClass()!=this.getClass()) return false;
+        if (o == null || o.getClass() != this.getClass()) return false;
         MyTriangle triangle = (MyTriangle) o;
 
         return Objects.equals(v1, triangle.v1) &&
@@ -72,9 +73,9 @@ public class MyTriangle {
     @Override
     public int hashCode() {
         int result = 17;
-        result = 31*result+v1.hashCode();
-        result = 31*result+v2.hashCode();
-        result = 31*result+v3.hashCode();
+        result = 31 * result + v1.hashCode();
+        result = 31 * result + v2.hashCode();
+        result = 31 * result + v3.hashCode();
 
         return result;
     }

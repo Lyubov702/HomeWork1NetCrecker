@@ -1,4 +1,4 @@
-package com.myExample.task1;
+package com.myExample.task1.book;
 
 public class Author {
 

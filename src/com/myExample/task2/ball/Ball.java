@@ -1,6 +1,4 @@
-package com.myExample.task2;
-
-import java.util.Objects;
+package com.myExample.task2.ball;
 
 public class Ball {
 
